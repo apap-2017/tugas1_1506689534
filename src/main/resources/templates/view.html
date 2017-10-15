@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>LIHAT DATA KELUARGA</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+				<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/student/viewall">Daftar Mahasiswa</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/student/add">Menambah Mahasiswa</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2"
+				type="text"
+				placeholder="Search"
+				aria-label="Search" />
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+				Search
+				</button>
+			</form>
+		</div>
+	</nav>
+<div class="jumbotron text-center">
+ <h3 th:text="'Lihat Data Penduduk - ' + ${penduduk.nik}"></h3>
+</div>
+    <div class="container">
+       	<h6 th:text="'NIK = ' + ${penduduk.nik}">NIK</h6>
+       	<h6 th:text="'Nama = ' + ${penduduk.nama}">NAMA</h6>
+     	<h6 th:text="'Tempat/Tanggal Lahir = ' + ${penduduk.tempat_lahir} + ', ' + ${penduduk.tanggal_lahir}">TANGGAL LAHIR</h6>
+       	<h6 th:text="'Alamat = ' + ${keluarga.alamat}">ALAMAT</h6>
+        <h6 th:text="'RT/RW = ' + ${keluarga.RT} + '/' + ${keluarga.RW}">RT/RW</h6>
+        <h6 th:text="'Kelurahan/Desa = ' + ${kelurahan.nama_kelurahan}">KELURAHAN/DESA</h6>
+        <h6 th:text="'Kecamatan = ' + ${kecamatan.nama_kecamatan}">KECAMATAN</h6>
+        <h6 th:text="'Kota = ' + ${kota.nama_kota}">KOTA</h6>
+        <h6 th:text="'Golongan Darah = ' + ${penduduk.golongan_darah}">GOLONGAN DARAH</h6>
+        <h6 th:text="'Agama = ' + ${penduduk.agama}">AGAMA</h6>
+        <h6 th:text="'Status Perkawinan = ' + ${penduduk.status_perkawinan}">STATUS PERKAWINAN</h6>
+        <h6 th:text="'Pekerjaan = ' + ${penduduk.pekerjaan}">PEKERJAAN</h6>
+        <h6 th:text="'Kewarganegaraan = ' + ${penduduk.is_wni}">KEWARGANEGARAAN</h6>
+        <h6 th:text="'Status Kematian = ' + ${penduduk.is_wafat}">STATUS KEMATIAN</h6>
+    </div>  
+     
+    </body>
+</html>
+

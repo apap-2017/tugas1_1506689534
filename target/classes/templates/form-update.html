@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Update student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+ <h1 class="page-header">Lihat Data Penduduk</h1>
+
+ <form action="/penduduk/{nik}" method="get" th:action="@{/penduduk/{nik}}" th:object="${penduduk}" >
+  <div>
+   <label for="nik">NIK</label> <input type="text" name="nik" th:value="${penduduk.nik}" th:field="*{nik}"/>
+  </div>
+   <div>
+   <button type="submit" name="action" value="save">Cari</button>
+  </div>
+  
+ </form>
+
+</body>
+
+</html>
