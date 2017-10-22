@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Melihat Daftar Penduduk</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+        <script src="/jquery-3.2.1.slim.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+	  	
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	    <script>
+	        $(document).ready(function () {
+	            $('#penduduks').DataTable();
+	        });
+	        
+	        
+	    </script>
+		
+		
+		
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+				<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/penduduk/cari">Mencari Penduduk</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/penduduk/tambah">Menambah Penduduk</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="container-fluid">
+        <h1>Daftar Penduduk</h1>
+    </div>
+        
+        <table id="penduduks" class="table">
+        
+       		<thead>
+		        <tr>
+		            <th>NIK </th>
+		            <th>Nama</th>
+		            <th>Jenis Kelamin</th>
+		            
+		        </tr>
+		    </thead>
+    	<tbody>
+        <div th:each="penduduk,iterationStatus: ${penduduk}">
+	        <tr>
+	        <td th:text="${penduduk.nik}">NIK</td>
+	        <td th:text="${penduduk.nama}">Nama</td>
+	        <td th:text="${penduduk.jenis_kelamin}==1?'Perempuan':'Laki-laki'"></td>
+	        </tr>			
+        </div>
+        
+        </tbody>
+        </table>
+    </body>
+</html>

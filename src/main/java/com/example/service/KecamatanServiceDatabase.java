@@ -19,8 +19,24 @@ public class KecamatanServiceDatabase implements KecamatanService
 
 	@Override
 	public KecamatanModel selectKecamatan(String id_kecamatan) {
-		log.info ("select student with id_kecamatan {}", id_kecamatan);
+		log.info ("select kecamatan with id_kecamatan {}", id_kecamatan);
         return pendudukMapper.selectKecamatan(id_kecamatan);
+	}
+
+	@Override
+	public List<KecamatanModel> selectKecamatanByKota(String id_kota) {
+		log.info ("select KecamatanByKota");
+        return pendudukMapper.selectKecamatanByKota(id_kota);
+	}
+
+	@Override
+	public List<KecamatanModel> selectAllKecamatan() {
+		return pendudukMapper.selectAllKecamatan();
+	}
+
+	@Override
+	public KecamatanModel selectKecamatanByNama(String nama_kecamatan) {
+		return pendudukMapper.selectKecamatanByNama(nama_kecamatan);
 	}
 
 

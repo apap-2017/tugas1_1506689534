@@ -29,4 +29,32 @@ public class KeluargaServiceDatabase implements KeluargaService
 		return pendudukMapper.selectKeluargaNKK(nomor_kk);
 	}
 
+	@Override
+	public List<KeluargaModel> selectAllKeluarga() {
+		log.info("select semua keluarga {}");
+		return pendudukMapper.selectAllKeluarga();
+	}
+
+	@Override
+	public List<KeluargaModel> selectNKK(String nomor_kk) {
+		return pendudukMapper.selectNKK(nomor_kk);
+	}
+
+	@Override
+	public void addKeluarga(KeluargaModel keluarga) {
+		pendudukMapper.addKeluarga(keluarga);
+	}
+
+	@Override
+	public void updateIsTidakBerlaku(String is_tidak_berlaku, String id) {
+		pendudukMapper.updateIsTidakBerlaku(is_tidak_berlaku, id);
+	}
+
+	@Override
+	public void update(KeluargaModel keluargaModel) {
+		pendudukMapper.update(keluargaModel);
+		
+	}
+
+	
 }

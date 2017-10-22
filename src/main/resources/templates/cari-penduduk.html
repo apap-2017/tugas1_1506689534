@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Cari Penduduk</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+				<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/penduduk/cari">Mencari Penduduk</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/penduduk/tambah">Menambah Penduduk</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<hr/>
+	<hr/>
+	<div class="container-fluid">
+		<h1 class="page-header">Mencari Penduduk</h1>
+	</div>
+	<form action="/penduduk/cari" method="get">
+		<div class="form-group">
+		 <div th:if="${id_kota == null}">
+			<label for="kota" >Kota</label> 
+			<select class="form-control" name = "id_kota" onchange="this.form.submit()" >
+				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kota</option>
+				<div th:each = "kota: ${kota}">
+					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota)}" selected="true" ></option>
+					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota) == false}"  ></option>
+				</div>
+			</select>
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		<div th:if="${id_kota != null}">
+			<label for="kota" >Kota</label> 
+			<select class="form-control" name = "id_kota_disabled" disabled="true" >
+				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kota</option>
+				<div th:each = "kota: ${kota}">
+					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota)}" selected="true" ></option>
+					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota) == false}"  ></option>
+				</div>
+			</select>
+		</div>
+		</div>
+		
+
+		<div th:if="${id_kota != null}">
+				<div th:each = "kota: ${kota}">
+					<input type="hidden" name="id_kota" th:value="${kota.id}"  th:if="${kota.id.equals(id_kota)}"  />
+				</div>
+		</div>
+		
+		
+		<div class="form-group">
+		<div th:if="${id_kota != null}">
+		<div th:if="${id_kecamatan == null}">
+			<label for="id_kecamatan" >Kecamatan</label> 
+			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()">
+				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
+				<div th:each = "kecamatan: ${kecamatan}">
+					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan)}" selected="true"></option>
+					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan) == false}" ></option>
+				</div>
+			</select>
+		</div>
+		</div>
+		</div>
+		
+		<div class="form-group">		
+		<div th:if="${id_kota != null}">
+		<div th:if="${id_kecamatan != null}">
+			<label for="id_kecamatan" >Kecamatan</label> 
+			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()" disabled = "true">
+				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
+				<div th:each = "kecamatan: ${kecamatan}">
+					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan)}" selected="true"></option>
+					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan) == false}" ></option>
+				</div>
+			</select>
+		</div>
+		</div>
+		</div>
+		
+		<div th:if="${id_kecamatan != null}">
+				<div th:each = "kecamatan: ${kecamatan}">
+					<input type="hidden" name="id_kecamatan" th:value="${kecamatan.id}"  th:if="${kecamatan.id.equals(id_kecamatan)}"  />
+				</div>
+		</div>
+	
+		<div class="form-group">
+		<div th:if="${id_kecamatan != null}">
+			<label for="kelurahan" >Kelurahan/Desa</label> 
+			<select class="form-control" name = "id_kelurahan">
+				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kelurahan</option>
+				<div th:each = "kelurahan: ${kelurahan}">
+					<option th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}" ></option>
+				</div>
+			</select>
+		</div>
+		</div>
+		
+		
+		<div>
+			<button type="submit" class="btn btn-default" name="action" >Cari</button>
+		</div>
+	</form>
+
+</body>
+
+</html>

@@ -23,4 +23,14 @@ public class KotaServiceDatabase implements KotaService
 		return pendudukMapper.selectKota(id_kota);
 	}
 
+	@Override
+	public List<KotaModel> selectAllKota() {
+		return pendudukMapper.selectAllKota();
+	}
+
+	@Override
+	public KotaModel selectKotaByNama(String nama_kota) {
+		return pendudukMapper.selectKotaByNama(nama_kota);
+	}
+
 }

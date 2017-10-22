@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>LIHAT DATA KELUARGA</title>
+        <title>Lihat Data Keluarga</title>
          <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     </head>
     <body>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="/">Home</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -19,34 +19,40 @@
 				<a class="nav-link" href="/">Home</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="/student/viewall">Daftar Mahasiswa</a>
+				<a class="nav-link" href="/penduduk/cari">Mencari Penduduk</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="/student/add">Menambah Mahasiswa</a>
+				<a class="nav-link" href="/penduduk/tambah">Menambah Penduduk</a>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2"
-				type="text"
-				placeholder="Search"
-				aria-label="Search" />
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-				Search
-				</button>
-			</form>
 		</div>
 	</nav>
+	
 <div class="jumbotron text-center">
  <h3 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomor_kk}"></h3>
 </div>
 
-	
-       	<h6 th:text="'NKK = ' + ${keluarga.nomor_kk}">NKK</h6>
-       	<h6 th:text="'Alamat = ' + ${keluarga.alamat}">ALAMAT</h6>
-        <h6 th:text="'RT/RW = ' + ${keluarga.RT} + '/' + ${keluarga.RW}">RT/RW</h6>
-        <h6 th:text="'Kelurahan/Desa = ' + ${kelurahan.nama_kelurahan}">KELURAHAN/DESA</h6>
-        <h6 th:text="'Kecamatan = ' + ${kecamatan.nama_kecamatan}">KECAMATAN</h6>
-        <h6 th:text="'Kota = ' + ${kota.nama_kota}">KOTA</h6>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-3">
+			    <h6 class="bold">NKK</h6>
+			    <h6 class="bold">Alamat</h6>
+		        <h6 class="bold">RT/RW</h6>
+		        <h6 class="bold">Kelurahan/Desa</h6>
+		        <h6 class="bold">Kecamatan</h6>
+		        <h6 class="bold">Kota</h6>
+	       </div>
+		
+			<div class="col-lg-6">
+		       	<h6 th:text="${keluarga.nomor_kk}">NKK</h6>
+		       	<h6 th:text="${keluarga.alamat}">Alamat</h6>
+		        <h6 th:text="${keluarga.RT} + '/' + ${keluarga.RW}">RT/RW</h6>
+		        <h6 th:text="${kelurahan.nama_kelurahan}">Kelurahan/Desa</h6>
+		        <h6 th:text="${kecamatan.nama_kecamatan}">Kecamatan</h6>
+		        <h6 th:text="${kota.nama_kota}">Kota</h6>
+		     </div>
+		 </div>
+	</div>
 	     
 	<table class="table table-bordered">
     <thead>

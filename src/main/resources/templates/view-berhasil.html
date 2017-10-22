@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+        <title>LIHAT DATA TAMBAH</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    </head>
+<body>
+
+<div class="container">
+
+    <!-- Title -->
+    <div class="container-fluid">
+        <h1 class="bold">Sukses!</h1>
+        <h2 th:text="${nik}">"${nik}"</h2>
+        <h5 th:text="${confirmation}">Teks jika berhasil</h5>
+    </div>
+
+    <script th:inline="javascript">
+        $(document).ready(function () {
+                    window.location.href = "http://localhost:8080/penduduk?nik=${nik}";
+        });
+    </script>
+
+
+</div>
+</body>
+</html>

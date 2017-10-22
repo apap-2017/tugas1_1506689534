@@ -23,4 +23,19 @@ public class KelurahanServiceDatabase implements KelurahanService
 		return pendudukMapper.selectKelurahan(id_kelurahan);
 	}
 
+	@Override
+	public List<KelurahanModel> selectAllKelurahan() {
+		return pendudukMapper.selectAllKelurahan();
+	}
+
+	@Override
+	public List<KelurahanModel> selectKelurahanByKecamatan(String id_kecamatan) {
+		return pendudukMapper.selectKelurahanByKecamatan(id_kecamatan);
+	}
+
+	@Override
+	public KelurahanModel selectKelurahanByNama(String nama_kelurahan) {
+		return pendudukMapper.selectKelurahanByNama(nama_kelurahan);
+	}
+
 }
