@@ -17,7 +17,7 @@
  <p><mark>Masukkan Nomor Induk Kependudukan</mark></p>
  <form action="/penduduk" method="get">
 	  <div class="form-group">
-	   <label for="nik">NIK</label> <input type="text" class="form-control" name="nik"/>
+	   <label for="nik">NIK</label> <input type="text" class="form-control" name="nik" required="true"/>
 	  </div>
 	  <div>
 	  	<button type="submit" class="btn btn-default" name="action" value="save">Save</button>
@@ -30,7 +30,7 @@
  <p><mark>Masukkan Nomor Kartu Keluarga</mark></p>
   <form action="/keluarga" method="get">
 	  <div class="form-group">
-	   <label for="nomor_kk">NKK</label> <input type="text" class="form-control" name="nomor_kk"/>
+	   <label for="nomor_kk">NKK</label> <input type="text" class="form-control" name="nomor_kk" required="true"/>
 	  </div>
 	  <div>
 	  	<button type="submit" class="btn btn-default" name="action" value="save">Save</button>

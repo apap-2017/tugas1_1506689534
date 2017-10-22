@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>LIHAT DATA KELUARGA</title>
+        <title>Mengubah Data Keluarga</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     </head>
     <body>
 <div class="container">
 
-    <!-- Title -->
     <div class="container-fluid">
-        <h3>Update Keluarga</h3>
+        <h3>Mengubah Data Keluarga</h3>
         <h2 th:text="${nkk}"></h2>
     </div>
 
     <hr/>
-
-    <!-- Form -->
     <div class="container-fluid">
         <form method="post" th:action="${nkk}" th:object="${keluarga}">
             <div class="form-group">

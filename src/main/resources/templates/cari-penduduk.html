@@ -38,7 +38,7 @@
 		<div class="form-group">
 		 <div th:if="${id_kota == null}">
 			<label for="kota" >Kota</label> 
-			<select class="form-control" name = "id_kota" onchange="this.form.submit()" >
+			<select class="form-control" name = "id_kota" onchange="this.form.submit()" required="true">
 				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kota</option>
 				<div th:each = "kota: ${kota}">
 					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota)}" selected="true" ></option>
@@ -51,14 +51,14 @@
 		<div class="form-group">
 		<div th:if="${id_kota != null}">
 			<label for="kota" >Kota</label> 
-			<select class="form-control" name = "id_kota_disabled" disabled="true" >
+			<select class="form-control" name = "id_kota_disabled" disabled="true" required="true" >
 				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kota</option>
 				<div th:each = "kota: ${kota}">
 					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota)}" selected="true" ></option>
 					<option th:value="${kota.id}" th:text="${kota.nama_kota}" th:if="${kota.id.equals(id_kota) == false}"  ></option>
 				</div>
 			</select>
-		</div>
+		</div> 
 		</div>
 		
 
@@ -73,7 +73,7 @@
 		<div th:if="${id_kota != null}">
 		<div th:if="${id_kecamatan == null}">
 			<label for="id_kecamatan" >Kecamatan</label> 
-			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()">
+			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()" required="true">
 				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
 				<div th:each = "kecamatan: ${kecamatan}">
 					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan)}" selected="true"></option>
@@ -88,7 +88,7 @@
 		<div th:if="${id_kota != null}">
 		<div th:if="${id_kecamatan != null}">
 			<label for="id_kecamatan" >Kecamatan</label> 
-			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()" disabled = "true">
+			<select class="form-control" name = "id_kecamatan" onchange="this.form.submit()" disabled = "true" required="true">
 				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
 				<div th:each = "kecamatan: ${kecamatan}">
 					<option th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}" th:if="${kecamatan.id.equals(id_kecamatan)}" selected="true"></option>
@@ -108,7 +108,7 @@
 		<div class="form-group">
 		<div th:if="${id_kecamatan != null}">
 			<label for="kelurahan" >Kelurahan/Desa</label> 
-			<select class="form-control" name = "id_kelurahan">
+			<select class="form-control" name = "id_kelurahan" required="true">
 				<option value="" th:disabled="disabled" th:selected="selected">Pilih Kelurahan</option>
 				<div th:each = "kelurahan: ${kelurahan}">
 					<option th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}" ></option>
